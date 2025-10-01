@@ -43,7 +43,7 @@ export const siteConfig: SiteConfig = {
 	bangumi: {
 		userId: "your-bangumi-id", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
 	},
-  
+
 	anime: {
 		mode: "local", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置
 	},
@@ -94,7 +94,7 @@ export const siteConfig: SiteConfig = {
 
 		homeText: {
 			enable: true, // 在主页显示自定义文本
-			title: "Beautiful Mizuki!", // 主页横幅主标题
+			title: "Pixelsama Home!", // 主页横幅主标题
 
 			subtitle: [
 				"A Showcase Demo Site",
@@ -143,6 +143,9 @@ export const siteConfig: SiteConfig = {
 		},
 		hanalei: {
 			enable: false, // 启用 Hanalei 字体作为全局字体，适合中文去使用
+		},
+		resourceHanRoundedCNBold: {
+			enable: false, // 启用 ResourceHanRoundedCN-Bold 字体作为全局字体
 		},
 	},
 	showLastModified: true, // 控制“上次编辑”卡片显示的开关
@@ -424,7 +427,6 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 				collapseThreshold: 20,
 			},
 		},
-
 	],
 
 	// 默认动画配置
@@ -485,7 +487,7 @@ export const sakuraConfig: SakuraConfig = {
 
 // Pio 看板娘配置
 export const pioConfig: import("./types/config").PioConfig = {
-	enable: false, // 启用看板娘
+	enable: true, // 启用看板娘
 	models: ["/pio/models/pio/model.json"], // 默认模型路径
 	position: "left", // 默认位置在右侧
 	width: 280, // 默认宽度
@@ -493,7 +495,7 @@ export const pioConfig: import("./types/config").PioConfig = {
 	mode: "draggable", // 默认为可拖拽模式
 	hiddenOnMobile: true, // 默认在移动设备上隐藏
 	dialog: {
-		welcome: "Welcome to Mizuki Website!", // 欢迎词
+		welcome: "Welcome to pixelsama Website!", // 欢迎词
 		touch: [
 			"What are you doing?",
 			"Stop touching me!",
