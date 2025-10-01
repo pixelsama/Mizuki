@@ -27,6 +27,14 @@
 	font-display: swap;
 }
 
+/* 引入我的超棒字体 */
+@font-face {
+	font-family: 'ResourceHanRoundedCN-Bold';
+	src: url('/assets/font/ResourceHanRoundedCN-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
