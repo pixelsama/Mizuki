@@ -155,13 +155,30 @@ export type LicenseConfig = {
 
 export type CommentConfig = {
 	enable: boolean; // 是否启用评论功能
+	type?: "twikoo" | "giscus"; // 评论系统类型
 	twikoo?: TwikooConfig;
+	giscus?: GiscusConfig;
 };
 
 type TwikooConfig = {
 	envId: string;
 	region?: string;
 	lang?: string;
+};
+
+type GiscusConfig = {
+	repo: string; // 仓库名，格式：username/repo
+	repoId: string;
+	category: string;
+	categoryId: string;
+	mapping?: "pathname" | "url" | "title" | "og:title" | "specific" | "number";
+	strict?: boolean;
+	reactionsEnabled?: boolean;
+	emitMetadata?: boolean;
+	inputPosition?: "top" | "bottom";
+	theme?: string;
+	lang?: string;
+	loading?: "lazy" | "eager";
 };
 
 export type LIGHT_DARK_MODE =

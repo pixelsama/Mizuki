@@ -285,9 +285,26 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 
 export const commentConfig: CommentConfig = {
 	enable: true, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
+	type: "giscus", // 评论系统类型: "twikoo" 或 "giscus"
+
+	// Twikoo 配置（需要服务器支持）
 	twikoo: {
 		envId: "https://twikoo.vercel.app",
-		lang: "zh-CN", // 设置 Twikoo 评论系统语言为英文
+		lang: "zh-CN",
+	},
+
+	// Giscus 配置（基于 GitHub Discussions，完全免费）
+	giscus: {
+		repo: "pixelsama/Mizuki",
+		repoId: "R_kgDOP6ir6w",
+		category: "General", // 使用 General 分类存储评论
+		categoryId: "DIC_kwDOP6ir684CwI16",
+		mapping: "pathname",
+		reactionsEnabled: true,
+		emitMetadata: false,
+		inputPosition: "bottom",
+		theme: "preferred_color_scheme",
+		lang: "zh-CN",
 	},
 };
 
