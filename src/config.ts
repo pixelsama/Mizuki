@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
 	},
 
 	translate: {
-		enable: true, // 启用翻译功能
+		enable: false, // 启用翻译功能
 		service: "client.edge", // 使用 Edge 浏览器翻译服务
 		defaultLanguage: getTranslateLanguageFromConfig(SITE_LANG), // 根据站点语言自动设置默认翻译语言
 		showSelectTag: false, // 不显示默认语言选择下拉菜单，使用自定义按钮
@@ -196,21 +196,15 @@ export const navBarConfig: NavBarConfig = {
 			children: [
 				{
 					name: "GitHub",
-					url: "https://github.com/matsuzaka-yuki/Mizuki",
+					url: "https://github.com/pixelsama",
 					external: true,
 					icon: "fa6-brands:github",
 				},
 				{
 					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
+					url: "https://space.bilibili.com/514784944",
 					external: true,
 					icon: "fa6-brands:bilibili",
-				},
-				{
-					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
-					external: true,
-					icon: "mdi:git",
 				},
 			],
 		},
