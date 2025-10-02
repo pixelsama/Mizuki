@@ -5,6 +5,7 @@ import Markdown from "@components/misc/Markdown.astro";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { url } from "../utils/url-utils";
 
 const friendsPost = await getEntry("spec", "friends");
 
@@ -16,7 +17,7 @@ const { Content } = await render(friendsPost);
 const items = [
 	{
 		title: "XBXyftx",
-		imgurl: `${import.meta.env.BASE_URL}xbxyftx-avatar.jpg`,
+		imgurl: url("/xbxyftx-avatar.jpg"),
 		desc: "XBXyftx's Blog",
 		siteurl: "https://xbxyftx.top/",
 		tags: ["Blog", "Friend"],
