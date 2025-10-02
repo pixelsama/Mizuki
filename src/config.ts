@@ -308,9 +308,8 @@ export const commentConfig: CommentConfig = {
 	},
 
 	// Waline 配置（支持多种部署方式）
-	// 部署教程: https://waline.js.org/guide/get-started/
 	waline: {
-		serverURL: "https://your-waline-server.vercel.app", // 你的 Waline 服务器地址
+		serverURL: "https://waline-rjtzui204-pixelsamas-projects.vercel.app",
 		lang: "zh-CN",
 		dark: "auto",
 		meta: ["nick", "mail", "link"],
