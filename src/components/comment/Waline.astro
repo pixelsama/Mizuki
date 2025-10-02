@@ -1,0 +1,143 @@
+---
+import { commentConfig } from "@/config";
+
+interface Props {
+	path: string;
+}
+
+const { path } = Astro.props;
+const walineConfig = commentConfig?.waline;
+
+if (!walineConfig) {
+	throw new Error("Waline config is required");
+}
+
+const {
+	serverURL,
+	lang = "zh-CN",
+	dark = "auto",
+	meta = ["nick", "mail", "link"],
+	requiredMeta = [],
+	login = "enable",
+	wordLimit = 0,
+	pageSize = 10,
+	imageUploader = false,
+	highlighter = false,
+	texRenderer = false,
+	search = false,
+	pageview = false,
+	comment = true,
+} = walineConfig;
+---
+
+<div id="waline-container"></div>
+
+<link
+	rel="stylesheet"
+	href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+/>
+
+<script
+	is:inline
+	define:vars={{
+		serverURL,
+		path,
+		lang,
+		dark,
+		meta,
+		requiredMeta,
+		login,
+		wordLimit,
+		pageSize,
+		imageUploader,
+		highlighter,
+		texRenderer,
+		search,
+		pageview,
+		comment,
+	}}
+>
+	async function initWaline() {
+		const { init } = await import(
+			"https://unpkg.com/@waline/client@v3/dist/waline.js"
+		);
+
+		const walineInstance = init({
+			el: "#waline-container",
+			serverURL: serverURL,
+			path: path,
+			lang: lang,
+			dark: dark,
+			meta: meta,
+			requiredMeta: requiredMeta,
+			login: login,
+			wordLimit: wordLimit,
+			pageSize: pageSize,
+			imageUploader: imageUploader,
+			highlighter: highlighter,
+			texRenderer: texRenderer,
+			search: search,
+			pageview: pageview,
+			comment: comment,
+		});
+
+		// 主题切换时更新 Waline
+		const observer = new MutationObserver(() => {
+			const isDark = document.documentElement.classList.contains("dark");
+			if (walineInstance && walineInstance.update) {
+				walineInstance.update({
+					dark: isDark ? "dark" : "light",
+				});
+			}
+		});
+
+		observer.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ["class"],
+		});
+
+		// 清理
+		document.addEventListener("astro:before-swap", () => {
+			observer.disconnect();
+			if (walineInstance && walineInstance.destroy) {
+				walineInstance.destroy();
+			}
+		});
+	}
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initWaline);
+	} else {
+		initWaline();
+	}
+</script>
+
+<style>
+	#waline-container {
+		margin-top: 1rem;
+	}
+
+	/* 自定义样式以匹配博客主题 */
+	:global(.wl-panel) {
+		background-color: var(--card-bg) !important;
+	}
+
+	:global(.wl-header-item) {
+		color: var(--primary) !important;
+	}
+
+	:global(.wl-input) {
+		background-color: var(--btn-regular-bg) !important;
+		color: var(--btn-content) !important;
+		border-color: var(--line-divider) !important;
+	}
+
+	:global(.wl-btn) {
+		background-color: var(--btn-regular-bg) !important;
+		color: var(--btn-content) !important;
+	}
+
+	:global(.wl-btn:hover) {
+		background-color: var(--btn-regular-bg-hover) !important;
+	}
+</style>

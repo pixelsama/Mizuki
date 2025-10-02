@@ -155,9 +155,10 @@ export type LicenseConfig = {
 
 export type CommentConfig = {
 	enable: boolean; // 是否启用评论功能
-	type?: "twikoo" | "giscus"; // 评论系统类型
+	type?: "twikoo" | "giscus" | "waline"; // 评论系统类型
 	twikoo?: TwikooConfig;
 	giscus?: GiscusConfig;
+	waline?: WalineConfig;
 };
 
 type TwikooConfig = {
@@ -179,6 +180,25 @@ type GiscusConfig = {
 	theme?: string;
 	lang?: string;
 	loading?: "lazy" | "eager";
+};
+
+type WalineConfig = {
+	serverURL: string; // Waline 服务端地址
+	lang?: string;
+	locale?: Record<string, string>;
+	emoji?: string[];
+	dark?: string; // 暗色模式适配
+	meta?: string[];
+	requiredMeta?: string[];
+	login?: "enable" | "disable" | "force";
+	wordLimit?: number | [number, number];
+	pageSize?: number;
+	imageUploader?: boolean;
+	highlighter?: boolean;
+	texRenderer?: boolean;
+	search?: boolean;
+	pageview?: boolean;
+	comment?: boolean;
 };
 
 export type LIGHT_DARK_MODE =

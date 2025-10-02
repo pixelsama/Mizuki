@@ -285,7 +285,7 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 
 export const commentConfig: CommentConfig = {
 	enable: true, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
-	type: "giscus", // 评论系统类型: "twikoo" 或 "giscus"
+	type: "waline", // 评论系统类型: "twikoo"、"giscus" 或 "waline"
 
 	// Twikoo 配置（需要服务器支持）
 	twikoo: {
@@ -305,6 +305,19 @@ export const commentConfig: CommentConfig = {
 		inputPosition: "bottom",
 		theme: "preferred_color_scheme",
 		lang: "zh-CN",
+	},
+
+	// Waline 配置（支持多种部署方式）
+	// 部署教程: https://waline.js.org/guide/get-started/
+	waline: {
+		serverURL: "https://your-waline-server.vercel.app", // 你的 Waline 服务器地址
+		lang: "zh-CN",
+		dark: "auto",
+		meta: ["nick", "mail", "link"],
+		requiredMeta: [],
+		login: "enable",
+		wordLimit: 0,
+		pageSize: 10,
 	},
 };
 

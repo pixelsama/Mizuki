@@ -1,8 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { commentConfig } from "@/config";
-import Twikoo from "./Twikoo.astro";
 import Giscus from "./Giscus.astro";
+import Twikoo from "./Twikoo.astro";
+import Waline from "./Waline.astro";
 
 interface Props {
 	post: CollectionEntry<"posts">;
@@ -19,5 +20,6 @@ const commentType = commentConfig?.type || "twikoo";
   <div class="card-base p-6 mb-4">
     {commentType === 'twikoo' && commentConfig?.twikoo && <Twikoo path={path} />}
     {commentType === 'giscus' && commentConfig?.giscus && <Giscus path={path} />}
+    {commentType === 'waline' && commentConfig?.waline && <Waline path={path} />}
   </div>
 )}
