@@ -370,20 +370,6 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			animationDelay: 0,
 		},
 		{
-			// 组件类型：公告组件
-			type: "announcement",
-			// 是否启用该组件（现在通过统一配置控制）
-			enable: true,
-			// 组件显示顺序
-			order: 2,
-			// 组件位置："top" 表示固定在顶部
-			position: "top",
-			// CSS 类名
-			class: "onload-animation",
-			// 动画延迟时间
-			animationDelay: 50,
-		},
-		{
 			// 组件类型：分类组件
 			type: "categories",
 			// 是否启用该组件
@@ -439,6 +425,20 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 				// 折叠阈值：当标签数量超过20个时自动折叠
 				collapseThreshold: 20,
 			},
+		},
+		{
+			// 组件类型：文章目录组件
+			type: "toc",
+			// 是否启用该组件
+			enable: true,
+			// 组件显示顺序
+			order: 6,
+			// 组件位置："sticky" 表示粘性定位
+			position: "sticky",
+			// CSS 类名
+			class: "onload-animation",
+			// 动画延迟时间
+			animationDelay: 300,
 		},
 	],
 

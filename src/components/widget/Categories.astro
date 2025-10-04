@@ -35,3 +35,26 @@ const style = Astro.props.style;
         </ButtonLink>
     )}
 </WidgetLayout>
+
+<script>
+    function checkCategoriesVisibility() {
+        const widgetLayout = document.querySelector('widget-layout[data-id="categories"]');
+        if (!widgetLayout) return;
+
+        // 检查是否在文章页
+        const isPostPage = window.location.pathname.includes('/posts/');
+        if (isPostPage) {
+            // 在文章页隐藏分类
+            widgetLayout.style.display = 'none';
+        } else {
+            // 非文章页显示分类
+            widgetLayout.style.display = '';
+        }
+    }
+
+    // 页面加载时检查
+    document.addEventListener('DOMContentLoaded', checkCategoriesVisibility);
+
+    // Swup 页面切换时检查
+    document.addEventListener('swup:page:view', checkCategoriesVisibility);
+</script>

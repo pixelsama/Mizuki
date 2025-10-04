@@ -69,13 +69,29 @@ const style = Astro.props.style;
         }
     }
 
-    // 页面加载时检查是否已关闭
-    document.addEventListener('DOMContentLoaded', function() {
+    function checkAnnouncementVisibility() {
         const widgetLayout = document.querySelector('widget-layout[data-id="announcement"]');
-        if (widgetLayout && localStorage.getItem('announcementClosed') === 'true') {
+        if (!widgetLayout) return;
+
+        // 检查是否在文章页
+        const isPostPage = window.location.pathname.includes('/posts/');
+        if (isPostPage) {
+            // 在文章页隐藏公告
+            widgetLayout.style.display = 'none';
+            return;
+        }
+
+        // 非文章页，检查是否已被用户关闭
+        if (localStorage.getItem('announcementClosed') === 'true') {
             widgetLayout.style.display = 'none';
         }
-    });
+    }
+
+    // 页面加载时检查
+    document.addEventListener('DOMContentLoaded', checkAnnouncementVisibility);
+
+    // Swup 页面切换时检查
+    document.addEventListener('swup:page:view', checkAnnouncementVisibility);
 
     // 使公告栏函数全局可用
     window.closeAnnouncement = closeAnnouncement;

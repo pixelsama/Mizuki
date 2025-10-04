@@ -32,3 +32,26 @@ const style = Astro.props.style;
         ))}
     </div>
 </WidgetLayout>
+
+<script>
+    function checkTagsVisibility() {
+        const widgetLayout = document.querySelector('widget-layout[data-id="tags"]');
+        if (!widgetLayout) return;
+
+        // 检查是否在文章页
+        const isPostPage = window.location.pathname.includes('/posts/');
+        if (isPostPage) {
+            // 在文章页隐藏标签
+            widgetLayout.style.display = 'none';
+        } else {
+            // 非文章页显示标签
+            widgetLayout.style.display = '';
+        }
+    }
+
+    // 页面加载时检查
+    document.addEventListener('DOMContentLoaded', checkTagsVisibility);
+
+    // Swup 页面切换时检查
+    document.addEventListener('swup:page:view', checkTagsVisibility);
+</script>
