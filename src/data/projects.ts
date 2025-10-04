@@ -29,7 +29,6 @@ export const projectsData: Project[] = [
 		status: "in-progress",
 		sourceCode: "https://github.com/ifLabX/AgentifUI",
 		startDate: "2025-04-29",
-		featured: true,
 		tags: ["AI", "Enterprise Chat", "Self-hosted", "Open Source"],
 	},
 	{
@@ -58,7 +57,6 @@ export const projectsData: Project[] = [
 		status: "in-progress",
 		sourceCode: "https://github.com/ifLabX/agentifui-pro",
 		startDate: "2025-08-25",
-		featured: true,
 		tags: ["AI", "Backend", "Python", "Enterprise"],
 	},
 	{
@@ -72,6 +70,7 @@ export const projectsData: Project[] = [
 		status: "in-progress",
 		sourceCode: "https://github.com/pixelsama/Free-Agent-Vtuber",
 		startDate: "2025-07-13",
+		featured: true,
 		tags: ["AI", "Vtuber", "Interactive"],
 	},
 	{
