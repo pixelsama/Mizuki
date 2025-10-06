@@ -33,7 +33,7 @@ cc-switch 是一个桌面应用程序，专门用来管理和切换 Claude Code 
 - GLM（智谱）
 - 其他兼容 Anthropic API 格式的服务
 
-### 同时支持两大主流编辑器
+### 同时支持两大编码智能体
 
 - **Claude Code**：Anthropic 官方的 编码智能体，支持终端以及vscode插件两种使用形式
 - **Codex**：OpenAI 官方的编码智能体，其本地版本支持撞断以及vscode插件两种使用方式
