@@ -1,9 +1,9 @@
 ---
-title: 开源工具 cc-switch：任意切换 Claude Code 与 Cursor 的 AI 服务配置
+title: 开源工具 cc-switch：任意切换 Claude Code 与 Codex 的 AI 服务配置
 published: 2025-10-06
 description: '一款实用的桌面工具，让你在不同 AI 服务商和模型配置之间一键切换，告别繁琐的手动配置'
 image: './开源工具cc-switch：任意切换cc与codex的编码模型/cc-switch.png'
-tags: [工具推荐, AI, Claude Code, Cursor]
+tags: [工具推荐, AI, Claude Code, Codex]
 category: '工具'
 draft: false
 lang: ''
@@ -15,7 +15,7 @@ lang: ''
 
 ## 工具简介
 
-cc-switch 是一个桌面应用程序，专门用来管理和切换 Claude Code 与 Cursor 的 AI 服务配置。你可以预先设置好多个不同的服务商配置（比如官方 API、DeepSeek、Qwen 等），需要时只需点击一下就能完成切换，不用再手动编辑配置文件。
+cc-switch 是一个桌面应用程序，专门用来管理和切换 Claude Code 与 Codex 的 AI 服务配置。你可以预先设置好多个不同的服务商配置（比如官方 API、DeepSeek、Qwen 等），需要时只需点击一下就能完成切换，不用再手动编辑配置文件。
 
 **适用场景：**
 - 经常在不同 AI 服务商之间切换
